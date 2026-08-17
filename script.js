@@ -1,29 +1,23 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const nav = document.querySelector('.nav');
+// 導覽列捲動後顯示底線。
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('is-stuck', window.scrollY > 8);
+onScroll();
+window.addEventListener('scroll', onScroll, { passive: true });
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
-    } else {
-      nav.style.boxShadow = 'none';
-    }
-  });
+// 區塊進入畫面時淡入，尊重使用者的減少動態設定。
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const items = document.querySelectorAll('.reveal');
 
-  const revealTargets = document.querySelectorAll('.card, .about');
-  const observer = new IntersectionObserver((entries) => {
+if (reduce || !('IntersectionObserver' in window)) {
+  items.forEach((el) => el.classList.add('is-in'));
+} else {
+  const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        observer.unobserve(entry.target);
+        entry.target.classList.add('is-in');
+        io.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
-
-  revealTargets.forEach((el) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(16px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-  });
-});
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+  items.forEach((el) => io.observe(el));
+}

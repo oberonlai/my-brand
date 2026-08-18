@@ -3,220 +3,214 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>codotx 想點創意科技｜Oberon Lai － WordPress 外掛開發與網站資安</title>
-<meta name="description" content="Oberon Lai，codotx 想點創意科技。開發與維護 WordPress 外掛，檢測並修補網站資安弱點。">
-<meta property="og:title" content="codotx 想點創意科技｜Oberon Lai">
-<meta property="og:description" content="開發與維護 WordPress 外掛，檢測並修補網站資安弱點。">
+<title>Oberon Lai — 幫你把卡住的網站問題做完</title>
+<meta name="description" content="Oberon Lai，WordPress 外掛與網站開發者。幫客戶解決具體的技術問題，把重複的流程變成自動化。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
 <a class="skip" href="#main">跳到主要內容</a>
 
-<header class="nav" id="nav">
-  <div class="nav__inner">
-    <a href="#top" class="logo"><span class="logo__mark"></span>codotx</a>
-    <nav class="nav__links" aria-label="主選單">
-      <a href="#about">關於我</a>
-      <a href="#services">服務</a>
-      <a href="#process">合作方式</a>
-      <a href="#work">案例</a>
-      <a href="#voices">評價</a>
-    </nav>
-    <a href="mailto:m615926@gmail.com" class="btn btn--sm">聯絡我</a>
-  </div>
+<header class="nav" id="top">
+  <a class="nav__brand" href="#top">
+    <span class="nav__mark" aria-hidden="true"></span>
+    Oberon&nbsp;Lai
+  </a>
+  <nav class="nav__links" aria-label="主要選單">
+    <a href="#about">關於我</a>
+    <a href="#services">服務項目</a>
+    <a href="#work">作品案例</a>
+    <a href="#voices">客戶評價</a>
+    <a class="nav__cta" href="#contact">聊聊合作</a>
+  </nav>
 </header>
 
 <main id="main">
 
-  <section id="top" class="hero">
+  <!-- 1. 開頭自我介紹 -->
+  <section class="hero" aria-labelledby="hero-title">
     <div class="hero__grid" aria-hidden="true"></div>
-    <div class="wrap hero__inner">
+    <div class="hero__glow" aria-hidden="true"></div>
+
+    <div class="hero__inner">
       <div class="hero__copy">
-        <p class="eyebrow">// codotx 想點創意科技</p>
-        <h1>我幫需要 WordPress 的公司開發外掛，並找出網站上還沒被發現的資安漏洞。</h1>
-        <p class="lede">從外掛客製、長期維護，到弱點檢測與修補建議，一個人接得起整條線，不用再多找一組廠商。</p>
+        <p class="eyebrow">WordPress 開發 ／ 系統串接 ／ 流程自動化</p>
+        <h1 id="hero-title" class="hero__title">
+          我幫中小團隊<em>把卡住的網站問題做完</em>，順手把重複的事變自動。
+        </h1>
+        <p class="hero__lede">
+          十幾年都在同一件事上打轉：讓網站真的能用。外掛開發、金流串接、後台改到符合團隊實際工作方式——不是做完就走，是做到你不用再回頭處理它。
+        </p>
         <div class="hero__actions">
-          <a href="mailto:m615926@gmail.com" class="btn btn--primary">寄信談合作</a>
-          <a href="#services" class="btn btn--ghost">看服務項目</a>
+          <a class="btn btn--primary" href="#contact">聊聊你的專案</a>
+          <a class="btn btn--ghost" href="#services">看我能做什麼</a>
         </div>
-        <dl class="hero__facts">
-          <div><dt>主要領域</dt><dd>WordPress 外掛開發</dd></div>
-          <div><dt>另一半時間</dt><dd>網站資安檢測與修補</dd></div>
-          <div><dt>合作方式</dt><dd>專案制、時薪制、包月維護</dd></div>
-        </dl>
       </div>
 
-      <figure class="patch" aria-label="程式碼修補示意：未過濾的輸入改成過濾後的寫法">
-        <div class="patch__bar">
-          <span class="patch__file">plugins/your-plugin/ajax.php</span>
-          <span class="patch__tag">diff</span>
+      <!-- 招牌元素：規格面板 -->
+      <aside class="panel" aria-label="工作方式摘要">
+        <div class="panel__bar">
+          <span class="panel__dot" aria-hidden="true"></span>
+          <span class="panel__name">how-i-work.md</span>
         </div>
-        <div class="patch__body">
-          <div class="patch__line patch__line--bad">
-            <span class="patch__sign">-</span><code>$id = $_POST['id'];</code>
-          </div>
-          <div class="patch__line patch__line--good">
-            <span class="patch__sign">+</span><code>$id = sanitize_text_field( wp_unslash( $_POST['id'] ) );</code>
-          </div>
-        </div>
-        <figcaption class="patch__foot">
-          <span class="chip chip--bad">輸入未過濾</span>
-          <span class="patch__arrow" aria-hidden="true">→</span>
-          <span class="chip chip--good">已修補</span>
-        </figcaption>
-      </figure>
+        <ol class="panel__body">
+          <li class="panel__line" data-line="01"><span class="k">先看清楚</span> 讀你的程式碼與後台，弄懂現況再報價</li>
+          <li class="panel__line" data-line="02"><span class="k">切成小塊</span> 一次交付一個能驗收的功能</li>
+          <li class="panel__line" data-line="03"><span class="k">寫得住</span> 安全檢查、權限、資料過濾一次做對</li>
+          <li class="panel__line" data-line="04"><span class="k">交得走</span> 附上說明，你的人接手得下去</li>
+        </ol>
+      </aside>
     </div>
   </section>
 
-  <section id="about" class="section reveal">
-    <div class="wrap about">
-      <div class="about__media">
-        <img src="./images/oberon.jpg" alt="Oberon Lai 的個人照片" loading="lazy" width="640" height="640">
-      </div>
+  <!-- 2. 關於我 -->
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="section__head">
+      <p class="eyebrow">關於我</p>
+      <h2 id="about-title">工程師出身，習慣從你的營運現場往回推</h2>
+    </div>
+    <div class="about">
       <div class="about__text">
-        <p class="eyebrow">// 關於我</p>
-        <h2>Oberon Lai</h2>
-        <p>codotx 想點創意科技的主理人。日常有兩件事：一件是把客戶想要的功能，寫成穩定好維護的 WordPress 外掛；另一件是把網站翻過來看，找出那些平常沒事、但被人試一下就會出事的地方。</p>
-        <p>我偏好把事情講清楚再動手：需求先對齊、範圍先講明、程式碼寫得讓下一個接手的人看得懂。技術文章也是同一件事的延伸——把踩過的坑寫下來，讓遇到同樣問題的人少繞一圈。</p>
+        <p>
+          我是 Oberon Lai，經營「想點創意科技（codotx）」。日常工作大多圍繞 WordPress：寫外掛、串外部服務、把後台改成團隊真的用得順的樣子，也會在部落格記下踩過的坑。
+        </p>
+        <p>
+          接案時我不從技術規格開始談，先問「這件事現在是誰在做、做多久、哪裡出錯」。多數時候真正該解的不是缺一個功能，而是流程繞了遠路。把那段拉直，程式才有意義。
+        </p>
+        <p>
+          也做程式碼健檢：權限沒擋、資料沒過濾、金流回呼可以被偽造——這些問題平常不會出事，出事就是大事。
+        </p>
+      </div>
+      <div class="about__side">
+        <figure class="portrait">
+          <img src="./images/oberon.jpg" alt="Oberon Lai 的個人照" width="900" height="900" loading="lazy">
+        </figure>
         <ul class="facts">
-          <li><span>專長</span>WordPress 外掛開發、PHP、資安弱點檢測與修補</li>
-          <li><span>寫作</span>技術部落格，記錄開發與資安的實作經驗</li>
-          <li><span>經歷細節</span>（待補：學經歷與服務年資，等真實資料再補上）</li>
+        <li><span class="facts__k">主力技術</span><span class="facts__v">WordPress、PHP、JavaScript</span></li>
+        <li><span class="facts__k">常見任務</span><span class="facts__v">外掛開發、API 串接、金流、資安檢查</span></li>
+        <li><span class="facts__k">合作方式</span><span class="facts__v">遠端為主，可專案制或包月</span></li>
+          <li><span class="facts__k">在哪寫字</span><span class="facts__v">codotx 技術部落格</span></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section id="services" class="section section--alt reveal">
-    <div class="wrap">
-      <p class="eyebrow">// 服務項目</p>
-      <h2 class="section__title">我能幫你做的三件事</h2>
-      <p class="section__lede">不確定自己需要哪一項也沒關係，來信描述現況，我會直接告訴你該從哪裡開始。</p>
-      <div class="cards">
-        <article class="card">
-          <p class="card__kicker">開發</p>
-          <h3>WordPress 外掛開發與客製</h3>
-          <p>依你的流程開發專屬功能，或改造既有外掛。交付前做過測試，交付後留得住維護，不是寫完就跑。</p>
-          <ul class="ticks">
-            <li>需求釐清與可行性評估</li>
-            <li>後台介面、REST API、金流與第三方串接</li>
-            <li>版本更新與長期維護</li>
-          </ul>
-        </article>
-        <article class="card">
-          <p class="card__kicker">資安</p>
-          <h3>網站資安弱點檢測與修補</h3>
-          <p>檢查外掛與佈景主題有沒有常見的可利用弱點，找到之後附上重現方式與修補寫法，不只丟一份掃描報告給你。</p>
-          <ul class="ticks">
-            <li>輸入過濾、權限與 nonce 檢查</li>
-            <li>SQL 注入、XSS、越權存取等常見弱點</li>
-            <li>修補建議與回歸驗證</li>
-          </ul>
-        </article>
-        <article class="card">
-          <p class="card__kicker">顧問</p>
-          <h3>技術顧問與知識分享</h3>
-          <p>團隊裡沒有熟 WordPress 的人時，我可以當那個問得到答案的人：程式碼審查、架構討論、內訓分享。</p>
-          <ul class="ticks">
-            <li>程式碼審查與重構建議</li>
-            <li>開發規範與流程建立</li>
-            <li>教育訓練與技術文章撰寫</li>
-          </ul>
-        </article>
+  <!-- 3. 服務項目 -->
+  <section class="section" id="services" aria-labelledby="services-title">
+    <div class="section__head">
+      <p class="eyebrow">服務項目</p>
+      <h2 id="services-title">四件我做得最熟的事</h2>
+      <p class="section__lede">不確定自己屬於哪一類也沒關係，把狀況講給我聽，我會告訴你該不該做、要花多少。</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <h3 class="card__title">WordPress 外掛開發</h3>
+        <p>現成外掛總差那一點，就客製一個剛好合用的。從需求討論、開發到上架 WordPress.org 都能接。</p>
+        <ul class="card__list">
+          <li>客製功能與後台介面</li>
+          <li>既有外掛的擴充與修改</li>
+          <li>多語系與上架審核</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3 class="card__title">網站建置與改版</h3>
+        <p>從佈景主題到區塊編輯器，把網站做到編輯自己就能維護，不用每次改字都找工程師。</p>
+        <ul class="card__list">
+          <li>佈景主題與版型開發</li>
+          <li>區塊編輯器導入</li>
+          <li>載入速度與體質優化</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3 class="card__title">金流與系統串接</h3>
+        <p>金流、CRM、電子報、內部系統，把資料接起來，讓它們自己對話，人只處理例外。</p>
+        <ul class="card__list">
+          <li>金流與訂單流程</li>
+          <li>第三方 API 介接</li>
+          <li>重複作業自動化</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3 class="card__title">程式碼健檢與資安審視</h3>
+        <p>接手前人的專案、或站上出過怪事，先做一次體檢，把會出事的地方列清楚再決定怎麼修。</p>
+        <ul class="card__list">
+          <li>權限與驗證檢查</li>
+          <li>資料過濾與注入風險</li>
+          <li>修補建議與優先順序</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4. 作品案例 -->
+  <section class="section" id="work" aria-labelledby="work-title">
+    <div class="section__head">
+      <p class="eyebrow">作品案例</p>
+      <h2 id="work-title">做過的東西</h2>
+      <p class="section__lede">這一區還沒填上真實案例——把專案名稱、你解決的問題與成果給我，我直接補進去。</p>
+    </div>
+    <div class="cards cards--work">
+      <article class="card card--todo">
+        <p class="card__tag">待補</p>
+        <h3 class="card__title">案例一</h3>
+        <p>建議寫：客戶是誰、原本卡在哪、你做了什麼、後來怎麼樣了。</p>
+      </article>
+      <article class="card card--todo">
+        <p class="card__tag">待補</p>
+        <h3 class="card__title">案例二</h3>
+        <p>有截圖或成果數字最好，沒有的話一段完整的故事也夠。</p>
+      </article>
+      <article class="card card--todo">
+        <p class="card__tag">待補</p>
+        <h3 class="card__title">案例三</h3>
+        <p>Side project 或開源作品也算，讀者要看的是你怎麼想事情。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 5. 客戶評價 -->
+  <section class="section" id="voices" aria-labelledby="voices-title">
+    <div class="section__head">
+      <p class="eyebrow">客戶評價</p>
+      <h2 id="voices-title">合作過的人怎麼說</h2>
+      <p class="section__lede">還沒放上任何評價。給我兩三段客戶說過的話與他們的職稱，我幫你排進來。</p>
+    </div>
+    <div class="quotes">
+      <blockquote class="quote quote--todo">
+        <p>「（待補：客戶說過的一句話，越具體越好，例如他原本擔心什麼、後來怎麼改觀。）」</p>
+        <footer><span class="quote__who">姓名／職稱（待補）</span></footer>
+      </blockquote>
+      <blockquote class="quote quote--todo">
+        <p>「（待補：另一段評價。合作過的窗口、同行推薦、開源使用者的回饋都可以。）」</p>
+        <footer><span class="quote__who">姓名／職稱（待補）</span></footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- 6. 聯絡方式 -->
+  <section class="section section--contact" id="contact" aria-labelledby="contact-title">
+    <div class="contact">
+      <p class="eyebrow">聯絡方式</p>
+      <h2 id="contact-title">把你現在卡住的地方講給我聽</h2>
+      <p class="contact__lede">
+        描述現況、你想達成什麼、大概的時間與預算範圍。我會回你這件事該不該做、怎麼做比較省，不會先塞一份報價單給你。
+      </p>
+      <div class="contact__box">
+        <p class="contact__k">Email</p>
+        <p class="contact__v">（待補）</p>
+        <p class="contact__note">告訴我要用哪個信箱，我把這裡換成可以直接點的寄信連結。</p>
       </div>
-    </div>
-  </section>
-
-  <section id="process" class="section reveal">
-    <div class="wrap">
-      <p class="eyebrow">// 合作方式</p>
-      <h2 class="section__title">從第一封信到上線，會經過這四步</h2>
-      <ol class="steps">
-        <li>
-          <span class="steps__no">01</span>
-          <h3>來信說明現況</h3>
-          <p>你把想解決的問題、網站網址與期望時程寫給我，愈具體愈好，不用先想好技術怎麼做。</p>
-        </li>
-        <li>
-          <span class="steps__no">02</span>
-          <h3>釐清範圍與報價</h3>
-          <p>我會回問幾個關鍵問題，確認範圍後給你做法、時程與費用，講清楚哪些包含、哪些不包含。</p>
-        </li>
-        <li>
-          <span class="steps__no">03</span>
-          <h3>開發或檢測</h3>
-          <p>過程中固定回報進度，有變動先講。資安案件則會附上弱點說明與重現步驟。</p>
-        </li>
-        <li>
-          <span class="steps__no">04</span>
-          <h3>交付與後續維護</h3>
-          <p>交付含說明文件，上線後保固期內修正問題，也可以轉成包月維護長期合作。</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section id="work" class="section section--alt reveal">
-    <div class="wrap">
-      <p class="eyebrow">// 作品案例</p>
-      <h2 class="section__title">案例整理中</h2>
-      <p class="section__lede">多數案子牽涉客戶的內部流程與網站弱點細節，需要取得同意才能公開。這裡先列出可以談的方向，實際內容陸續補上。</p>
-      <div class="cards">
-        <article class="card card--empty">
-          <p class="card__kicker">外掛開發</p>
-          <h3>客製外掛專案</h3>
-          <p>功能說明、技術重點與成果指標整理中。</p>
-          <p class="status">待補</p>
-        </article>
-        <article class="card card--empty">
-          <p class="card__kicker">資安</p>
-          <h3>弱點檢測與修補</h3>
-          <p>去識別化後的檢測報告範例準備中。</p>
-          <p class="status">待補</p>
-        </article>
-        <article class="card card--empty">
-          <p class="card__kicker">寫作</p>
-          <h3>技術文章</h3>
-          <p>部落格文章連結整理中。</p>
-          <p class="status">待補</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="voices" class="section reveal">
-    <div class="wrap">
-      <p class="eyebrow">// 客戶評價</p>
-      <h2 class="section__title">這裡還是空的</h2>
-      <div class="empty">
-        <p>我不想放沒有人真的說過的話，所以在收到客戶願意具名的回饋之前，這一區保持空白。</p>
-        <p>如果我們合作過，歡迎寫兩句給我，我會補在這裡並附上你的名字與公司。</p>
-        <a href="mailto:m615926@gmail.com?subject=%E5%90%88%E4%BD%9C%E5%9B%9E%E9%A5%8B" class="link">寄一段回饋給我</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section contact reveal">
-    <div class="wrap contact__inner">
-      <p class="eyebrow">// 聯絡方式</p>
-      <h2 class="section__title">有需求就直接說，我會回信</h2>
-      <p class="section__lede">外掛開發、資安檢測，或只是想確認某個做法可不可行都可以。信裡附上網站網址與想解決的問題，我會給你具體的下一步。</p>
-      <a href="mailto:m615926@gmail.com" class="btn btn--primary btn--lg">寄信給 Oberon</a>
-      <p class="contact__mail"><a href="mailto:m615926@gmail.com">m615926@gmail.com</a></p>
     </div>
   </section>
 
 </main>
 
-<footer class="footer">
-  <div class="wrap footer__inner">
-    <p class="logo"><span class="logo__mark"></span>codotx 想點創意科技</p>
-    <p class="footer__note">&copy; 2026 Oberon Lai</p>
-  </div>
+<footer class="foot">
+  <p>© <span id="year">2026</span> Oberon Lai ／ 想點創意科技</p>
+  <a href="#top">回到最上面</a>
 </footer>
 
 <script src="./script.js"></script>

@@ -55,6 +55,7 @@
 - **絕對不要使用 React／Vue／Next.js 等框架，不要 npm install、不要 build 步驟、不要打包工具。** 若 frontend-design 想搭框架，一律改回原生 HTML/CSS/JS。
 - **CSS、JS、圖片一律用相對路徑 `./`（例如 `./style.css`、`./photo.jpg`）。絕對禁止用根目錄開頭的路徑（例如 `/style.css`）**——因為 GitHub Pages 會把網站放在子路徑 `https://帳號.github.io/<slug>/`，用 `/` 開頭會抓到網域根而 404。
 - 所有內容寫在單一頁面，用錨點連結切換段落。手機版需正常顯示。
+- **改完 `style.css` 或 `script.js`，一定要把 `index.html` 裡的 `?v=` 版本號 +1**（例如 `./style.css?v=1` 改成 `?v=2`）。GitHub Pages 的 CSS/JS 會被瀏覽器快取 10 分鐘，不換版本號使用者重整只會看到舊樣式。
 
 ## 部署到 GitHub Pages（做完就上線，並在瀏覽器打開）
 
